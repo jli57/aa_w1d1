@@ -34,12 +34,12 @@ end
 
 def digital_root(num)
   digit = num % 10
-  remainder = num / 10
+  remaining_digits = num / 10
 
-  if remainder > 9
-    digit+digital_root(remainder)
+  if remaining_digits == 0
+    digit
   else
-    digit+remainder
+    digital_root(digit + digital_root(remaining_digits))
   end
 end
 
