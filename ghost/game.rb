@@ -36,6 +36,7 @@ class GhostGame
       player.alert_invalid_guess
       curr_guess = current_player.guess
     end
+    puts "#{player} guessed #{curr_guess}" if player.is_a?(AiPlayer)
     @fragment += curr_guess
   end
 
@@ -140,9 +141,7 @@ class AiPlayer
         return word[fragment.length]
       end
     end
-    guess = @current_possible_words.keys.sample[fragment.length]
-    puts "#{@name} guessed #{guess}"
-    guess
+    @current_possible_words.keys.sample[fragment.length]
   end
 
   def reset(dictionary)
