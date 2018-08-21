@@ -5,6 +5,10 @@ def valid_play_test(string)
 
 end
 
-puts valid_play_test("l") #true
-puts valid_play_test("apple") #false
-puts valid_play_test("a") #false
+def test_game
+  dictionary = GhostGame.parse_dictionary("dictionary.txt")
+  game = GhostGame.new([Player.new("Austin"), AiPlayer.new(dictionary), Player.new("Jingna"), AiPlayer.new(dictionary)], dictionary)
+  game.run
+end
+
+test_game
